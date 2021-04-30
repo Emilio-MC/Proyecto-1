@@ -1,4 +1,5 @@
- 
+
+
 #-----------------------------------------------------------------------------------------------
 
 
@@ -307,7 +308,7 @@ def iniciaModificarTransporte(marca):
     modelo = input("Ingrese el modelo del vehiculo: ")
     año = input("Ingrese el año del vehiculo:")
     print("El vehiculo debe de ser de las empresas ingresadas anteriormente")
-    empresa = input("A que emprese pertenece el vehiculo:")
+    empresa = input("A que empresa pertenece el vehiculo:")
     asientosvip = input("Cantidad de asientos de clase vip: ")
     asientosnormales = input("Cantidad de asientos normales: ")
     asientoseco = input("Cantidad de asientos de clase económica: ")
@@ -414,43 +415,48 @@ def GestiónTransporteEmpresas():
 #Entradas: Debe ingresar los siguientes parametros placa, marca, modelo, año, empresa, asientosvip, asientosnormales, asientoseco
 #Salidas: Una vez completado se guarda el transporte en el archivo
 #Restricciones: La placa debe tener 6 digitos y no se pueden repetir
-def IncluirTransporte():
+def IncluirViaje():
     if(0==0):
                 pass
-    print("Debe de tener 6 digitos")
-    placa = (input("Ingrese la placa: "))
-    contador = len(str(placa))
-    contador = str(contador)
-    marca = input("Ingrese el marca: ")
-    Contador = len (str(marca))
+    import random
+
+    for i in range(5):
+         print(random.uniform(100,1000))
+    print("De los numeros anteriores ingrese uno como numero de viaje")
+    numeroviaje=(input("Ingrese un numero de viaje"))
+    CONTADOR= len(str(numeroviaje))
+    CONTADOR = str(CONTADOR)
+    Cuidadsalida = (input("Ingrese la cuidad de salida: "))
+    Contador = len(str(Cuidadsalida))
     Contador = str(Contador)
-    modelo = input("Ingrese el modelo del vehiculo: ")
-    año = input("Ingrese el año del vehiculo:")
-    print("El vehiculo debe de ser de las empresas ingresadas anteriormente")
-    empresa = input("A que emprese pertenece el vehiculo:")
+    Fechahorasalida = input("Ingrese la fecha y la hora de salida:  , ")
+    conTador= len(str(Fechahorasalida))
+    conTador = str(conTador)
+    Cuidadllegada = input("Ingrese la cuidad de llegada:")
+    ContaDor = len(str(Cuidadllegada))
+    ContaDor = str(ContaDor)
+    Fechahorallegada = input("Ingrese la fecha y hora de llegada:  , ")
+    contador = len(str(Fechahorallegada))
+    contador = str(contador)
+    print("La empresa debe de ser de las ingresadas anteriormente ")
+    empresa = input("Ingrese la empresa encargada de su viaje: ")
+    print("El transporte debe de ser de los ingresados anteriormente")
+    transporte = input("Ingrese el transporte: ")
+    print("El monto del asiento clase vip es de 15.000 colones")
     asientosvip = input("Cantidad de asientos de clase vip: ")
+    print("El monto del asiento clase normal es de 5.000 colones")
     asientosnormales = input("Cantidad de asientos normales: ")
+    print("El monto del asiento clase económica es de 2.000 colones")
     asientoseco = input("Cantidad de asientos de clase económica: ")
     proyecto = "viajes.txt"
 
-    anexarContenidoArchivoViajes(proyecto, placa, marca, modelo, año, empresa, asientosvip, asientosnormales, asientoseco, contador, Contador)
+    ContinuarIncluirViaje(proyecto, numeroviaje, Cuidadsalida, Fechahorasalida, Cuidadllegada, Fechahorallegada, empresa, transporte, asientosvip, asientosnormales, asientoseco, CONTADOR,Contador, conTador,ContaDor,contador)
 
-def anexarContenidoArchivoViajes(proyecto, placa, marca, modelo, año, empresa, asientosvip, asientosnormales, asientoseco, contador, Contador):
-        f = open (proyecto,'a')
-        if(contador<"6"):
-                return print("La placa no puede tener menos de 6 digitos")
-        elif(contador>"6"):
-                return print("La placa no puede tener más de 6 digitos")
-        elif(contador=="6"):
-            return print ("No puede existir dos transportes con la misma placa")
-        elif(0==0):
-                return ContinuarIncluirViaje(proyecto, placa, marca, modelo, año, empresa, asientosvip, asientosnormales, asientoseco, contador, Contador)
-
-def ContinuarIncluirViaje(proyecto, placa, marca, modelo, año, empresa, asientosvip, asientosnormales, asientoseco, contador, Contador):
+def ContinuarIncluirViaje(proyecto, numeroviaje, Cuidadsalida, Fechahorasalida, Cuidadllegada, Fechahorallegada, empresa, transporte, asientosvip, asientosnormales, asientoseco, CONTADOR,Contador, conTador,ContaDor,contador):
         if(0==0):
                 f = open (proyecto,'a')
 
-                unregistro = placa + "," + marca + ',' + modelo + ','+ año + ','+ empresa + ','+ asientosvip + ','+ asientosnormales + ','+ asientoseco +'\n'
+                unregistro = numeroviaje + ',' + Cuidadsalida + "," + Fechahorasalida + ',' + Cuidadllegada + ','+ Fechahorallegada + ','+ empresa + ',' + transporte + ','+ asientosvip+ ','+ asientosnormales + ','+ asientoseco +'\n'
                 f.write(unregistro)
                 f.close()
                 print("Guardado con exito en viajes.txt")          
@@ -488,7 +494,7 @@ def EliminarViaje_aux(NumeroLinea):
     f.close()
     print("Viaje eliminado con exito")
 #------------------------------------------------------------------------------------------------
- #Nombre: Ver Viajes
+#Nombre: Ver Viajes
 #Salidas: Retorna todas los transportes ya ingresados
 def VerViajes():
     f = open ("viajes.txt",'r')
@@ -567,8 +573,27 @@ def OpcionesAdministrativas():
 
 
 #----------------------------------------------------------------------------------------------------------------
+#Nombre: clave
+#Entradas: Ingresar la clave de invitados
+#Salidas: Una vez ingresada la clave lo enviara al menu de opciones administrativas
+#Restricciones: Solo puede ingresar la clave de invitados
+def clave():
+     print("La clave de acceso para invitados es 2003070324")
 
+     if(0==0):
+                pass     
+     clave = input("Ingrese la clave : ")
+     proyecto = "claves.txt"
 
+     anexarclave(proyecto,clave)
+
+def anexarclave(proyecto,clave):
+    f = open ('claves.txt','r')
+    if (clave==''):
+        print ("Error: ingrese una clave")
+    for mensaje in f.readlines():
+        return OpcionesAdministrativas()   
+    f.close()    
 #--------------------------------------------------------------------------------------------------------------
 #Nombre: Reservacion de boletos
 #Entradas: Selecciona una de las opciones a mostras con los numeros que le solicitan
@@ -587,7 +612,7 @@ def reservacionBoletos():
 
     if (isinstance(opcion,str)):
            if(opcion=='1'):
-                    OpcionesAdministrativas()
+                    clave()
             
            elif(opcion=='2'):
                    OpcionesGenerales()
